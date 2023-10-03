@@ -13,7 +13,9 @@ const Dashboard = () => {
         </div>
         <InfoPanel selectedDevice="Fourth floor left door" timestamp="Now" currentValue="opened" isSelected={true} />
       </div>
-      <NotificationPanel />
+      <div className={styles.rightSection}>
+        <NotificationPanel />
+      </div>
     </div>
   );
 };
