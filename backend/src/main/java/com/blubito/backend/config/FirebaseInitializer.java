@@ -1,4 +1,4 @@
-package com.blubito.backend.service;
+package com.blubito.backend.config;
 
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
@@ -12,8 +12,7 @@ import java.io.FileInputStream;
 
 @Service
 public class FirebaseInitializer {
-
-    private DatabaseReference databaseReference;
+    public DatabaseReference databaseReference;
     @PostConstruct
     public void initialize() {
         try {
@@ -23,13 +22,13 @@ public class FirebaseInitializer {
 
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                    .setDatabaseUrl("https://midnightsun-98820-default-rtdb.europe-west1.firebasedatabase.app")
+                    .setDatabaseUrl("https://midnightsun-98820-default-rtdb.europe-west1.firebasedatabase.app/")
                     .build();
 
             FirebaseApp.initializeApp(options);
-            this.databaseReference = FirebaseDatabase.getInstance().getReference();
+            this.databaseReference = FirebaseDatabase.getInstance().getReference("device");
         } catch (Exception e) {
-            //DANGER change
+            //DANGER remove stack trace print
             e.printStackTrace();
             throw new RuntimeException("Failed to initialize Firebase database");
         }
