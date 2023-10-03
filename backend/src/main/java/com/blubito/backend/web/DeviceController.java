@@ -15,6 +15,8 @@ import java.util.List;
 @RequestMapping("/api")
 @CrossOrigin(origins = {"http://localhost:1914","http://localhost:3000"})
 public class DeviceController {
+
+    public static final String ID_NULL = "The deviceId is null!";
     @Autowired
     private final DeviceService deviceService;
     @Autowired
@@ -27,13 +29,6 @@ public class DeviceController {
         this.deviceMapper = deviceMapper;
         this.notificationSenderService = notificationSenderService;
     }
-    @GetMapping("/devices/{id}")
-    public String getDevice(@PathVariable String id){
-        if(id != null){
-            return deviceService.getDeviceById(id);
-        }
-        throw new HttpBadRequestException("Exception");
-    }
 
     @PostMapping("/devices")
     public String createDevice(@RequestBody DeviceDTO deviceDTO) {
@@ -42,6 +37,22 @@ public class DeviceController {
             return deviceService.createDevice(device);
         }
         throw new HttpBadRequestException("deviceDTO is null");
+    }
+
+    @GetMapping("/devices/{id}")
+    public String getDevice(@PathVariable String id){
+        if(id != null){
+            return deviceService.getDeviceById(id);
+        }
+        throw new HttpBadRequestException(ID_NULL);
+    }
+
+    @GetMapping("/devices/{deviceId}/value")
+    public String getLastValueForADevice(@PathVariable String deviceId){
+        if(deviceId != null){
+            return deviceService.getValueForADevice(deviceId);
+        }
+        throw new HttpBadRequestException(ID_NULL);
     }
 
     @GetMapping("/devices")

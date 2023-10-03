@@ -100,6 +100,7 @@ public class DeviceService {
         return response.body();
     }
 
+    //TODO: coming soon
     public List<String> getValuesForTimeframe(String deviceId, String startTime, String endTime) {
         String deviceFromDatabaseASString = getDeviceById(deviceId);
         JsonObject deviceObjectAsJSON = JsonParser.parseString(deviceFromDatabaseASString).getAsJsonObject();
@@ -114,13 +115,19 @@ public class DeviceService {
         if (isWithinTimeframe(timesTampOfDeviceValue, startTime, endTime)) {
             valuesForTimeframe.add(deviceFromDatabaseASString);
         }
-        //for (var value : new ArrayList<>()) { //deiceValues
-            // Check if the value's timestamp falls within the specified timeframe
-//                    if (isWithinTimeframe(value.getTimestamp(), startTime, endTime)) {
-//                        valuesForTimeframe.add(value);
-//                    }
- //      }
         return valuesForTimeframe;
+    }
+
+    public String getValueForADevice(String deviceId) {
+        String deviceFromDatabaseASString = getDeviceById(deviceId);
+        JsonObject deviceObjectAsJSON = JsonParser.parseString(deviceFromDatabaseASString).getAsJsonObject();
+
+        String deviceIdFromJSON = null;
+        if (deviceObjectAsJSON.get("id") != null) {
+            deviceIdFromJSON = deviceObjectAsJSON.get("id").getAsString();
+        }
+        String timesTampOfDeviceValue = deviceObjectAsJSON.get("values").getAsJsonObject().get("value").getAsString();
+        return timesTampOfDeviceValue;
     }
 
     private boolean isWithinTimeframe(String timestamp, String startTime, String endTime) {
