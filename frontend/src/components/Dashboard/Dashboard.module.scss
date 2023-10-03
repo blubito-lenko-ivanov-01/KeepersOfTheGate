@@ -1,0 +1,17 @@
+.dashboard {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  .leftSection {
+    display: flex;
+    flex-direction: column;
+    margin-right: 5rem;
+    .devicesSection {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+}

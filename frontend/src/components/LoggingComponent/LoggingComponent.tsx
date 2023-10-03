@@ -5,6 +5,7 @@ const LoggingComponent = () => {
   const { loginWithRedirect } = useAuth0();
 
   return (
+    // TODO -> STYLE THIS BUTTON
     <div>
       <Button label="Log in" onClick={() => loginWithRedirect()} />
     </div>
