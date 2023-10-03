@@ -1,11 +1,10 @@
 .infoPanel {
-  padding: 0rem 1rem;
+  padding: 0rem 1rem 1rem 1rem;
   display: flex;
   flex-direction: column;
   width: 50rem;
   max-width: 50rem;
-  height: 20rem;
-  max-height: 20rem;
+  min-height: fit-content;
   border: 1px solid #dcdcdc;
   border-radius: 25px;
 
@@ -15,6 +14,13 @@
     flex-wrap: wrap;
     align-content: flex-start;
     text-align: left;
+  }
+
+  .chartContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 
   .emptyMsg {
