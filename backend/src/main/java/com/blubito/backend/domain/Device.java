@@ -3,7 +3,6 @@ package com.blubito.backend.domain;
 import com.google.firebase.database.annotations.NotNull;
 import lombok.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Builder
@@ -25,4 +24,7 @@ public class Device {
     private String createdBy;
     private List<Value> values;
 
+    public Device() {
+
+    }
 }
