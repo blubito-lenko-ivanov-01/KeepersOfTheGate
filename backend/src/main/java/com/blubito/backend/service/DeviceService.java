@@ -1,16 +1,19 @@
 package com.blubito.backend.service;
 
 import com.blubito.backend.domain.Device;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.lang.reflect.Type;
+
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +21,7 @@ import java.util.List;
 @Service
 public class DeviceService {
     private HttpClient httpClient = HttpClient.newHttpClient();
+
     public String createDevice(Device device) {
         String apiUrl = "https://midnightsun-98820-default-rtdb.europe-west1.firebasedatabase.app/device.json";
 
@@ -45,9 +49,10 @@ public class DeviceService {
                 return ("POST request failed with response code: " + response.statusCode());
             }
         } catch (IOException | InterruptedException e) {
-            return("Error occurred during POST request: " + e.getMessage());
+            return ("Error occurred during POST request: " + e.getMessage());
         }
     }
+
     public String getDeviceById(String deviceId) {
         String apiUrl = "https://midnightsun-98820-default-rtdb.europe-west1.firebasedatabase.app/device/" + deviceId + ".json";
 
@@ -62,15 +67,16 @@ public class DeviceService {
             if (response.statusCode() == 200) {
                 return response.body();
             } else {
-                return("GET request failed with response code: " + response.statusCode());
+                return ("GET request failed with response code: " + response.statusCode());
             }
         } catch (IOException | InterruptedException e) {
-            return"Error occurred during GET request: " + e.getMessage();
+            return "Error occurred during GET request: " + e.getMessage();
         }
     }
+
     public String getAllDevices() {
         HttpResponse<String> response = null;
-                // Construct the URL for fetching all devices
+        // Construct the URL for fetching all devices
         String apiUrl = "https://midnightsun-98820-default-rtdb.europe-west1.firebasedatabase.app/device.json";
 
         // Create a GET request
@@ -92,6 +98,43 @@ public class DeviceService {
             System.out.println("Error occurred during GET request: " + e.getMessage());
         }
         return response.body();
+    }
+
+    public List<String> getValuesForTimeframe(String deviceId, String startTime, String endTime) {
+        String deviceFromDatabaseASString = getDeviceById(deviceId);
+        JsonObject deviceObjectAsJSON = JsonParser.parseString(deviceFromDatabaseASString).getAsJsonObject();
+
+        String deviceIdFromJSON = null;
+        if (deviceObjectAsJSON.get("id") != null) {
+            deviceIdFromJSON = deviceObjectAsJSON.get("id").getAsString();
+        }
+        List<String> valuesForTimeframe = new ArrayList<>();
+        String timesTampOfDeviceValue = deviceObjectAsJSON.get("values").getAsJsonObject().get("timestamp").getAsString();
+
+        if (isWithinTimeframe(timesTampOfDeviceValue, startTime, endTime)) {
+            valuesForTimeframe.add(deviceFromDatabaseASString);
+        }
+        //for (var value : new ArrayList<>()) { //deiceValues
+            // Check if the value's timestamp falls within the specified timeframe
+//                    if (isWithinTimeframe(value.getTimestamp(), startTime, endTime)) {
+//                        valuesForTimeframe.add(value);
+//                    }
+ //      }
+        return valuesForTimeframe;
+    }
+
+    private boolean isWithinTimeframe(String timestamp, String startTime, String endTime) {
+        LocalDateTime valueTimestamp = parseTimestamp(timestamp);
+        LocalDateTime startTimestamp = parseTimestamp(startTime);
+        LocalDateTime endTimestamp = parseTimestamp(endTime);
+
+        return valueTimestamp.isAfter(startTimestamp) && valueTimestamp.isBefore(endTimestamp);
+    }
+
+    public LocalDateTime parseTimestamp(String timestamp) {
+        // Parse the timestamp string to LocalDateTime using a specific format
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'");
+        return LocalDateTime.parse(timestamp, formatter).atOffset(ZoneOffset.UTC).toLocalDateTime();
     }
 
 }
