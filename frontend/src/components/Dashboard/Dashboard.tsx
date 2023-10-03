@@ -65,7 +65,9 @@ const Dashboard = () => {
         </div>
         <InfoPanel deviceInfo={getSelectedInfo()} />
       </div>
-      <NotificationPanel />
+      <div className={styles.rightSection}>
+        <NotificationPanel />
+      </div>
     </div>
   );
 };

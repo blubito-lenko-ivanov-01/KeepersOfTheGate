@@ -8,17 +8,29 @@
   background: linear-gradient(336deg, rgba(121,228,240,1) 8%, rgba(21,123,222,1) 80%);
   padding: 3rem 3rem;
   margin-right: 5rem;
-  .devicesSection {
-    border-radius: 10px;
-    max-width: 50rem;
-    height: fit-content;
-    width: fit-content;
-    padding: 3rem 3rem;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: row;
-    margin-bottom: 2rem;
-    background-color: #ffffff7d;
+
+  .leftSection {
+    height: 50rem;
+    max-height: 50rem;
+    border: 1px solid red;
+
+    .devicesSection {
+      border-radius: 10px;
+      max-width: 50rem;
+      height: fit-content;
+      width: fit-content;
+      padding: 3rem 3rem;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-direction: row;
+      margin-bottom: 2rem;
+      background-color: #ffffff7d;
+    }
+  }
+
+  .rightSection {
+    height: 50rem;
+    max-height: 50rem;
   }
 }
