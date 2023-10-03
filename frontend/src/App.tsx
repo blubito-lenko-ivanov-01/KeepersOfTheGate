@@ -1,6 +1,6 @@
 import "./App.css";
 import { useAuth0 } from "@auth0/auth0-react";
-import LoggingComponent from "./components/LoggingComponent/LoggingComponent";
+import LoginComponent from "./components/LoggingComponent/LoginComponent";
 import Dashboard from "./components/Dashboard/Dashboard";
 import { useEffect } from "react";
 
@@ -17,7 +17,7 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [getAccessTokenSilently, isAuthenticated]);
 
-  return <>{!isAuthenticated ? <LoggingComponent /> : <Dashboard />}</>;
+  return <>{ !isAuthenticated ? <LoginComponent /> : <Dashboard />}</>;
 }
 
 export default App;
