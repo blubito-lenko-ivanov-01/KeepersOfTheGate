@@ -1,0 +1,28 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-bvgptuthuktivpgq.us.auth0.com/
+
+auth0:
+  audience: http://ecart
+
+logging:
+  level:
+    ROOT: INFO
+    com.blubito: DEBUG
+
+server:
+  port: 1914
+
+global:
+  exception-handling:
+    debug-message: TRUE
+
+info:
+  application:
+    name: Keepers of the Gate
+    version: 0.0.1
+    description: Our team's entry for the company's internal hackathon event
+
