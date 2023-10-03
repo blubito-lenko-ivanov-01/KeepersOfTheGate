@@ -1,3 +1,5 @@
+import { useAuth0 } from "@auth0/auth0-react";
+import LineChart from "../Charts/LineChart/LineChart";
 import styles from "./InfoPanel.module.scss";
 
 const enum deviceType {
@@ -15,6 +17,7 @@ export interface InfoPanelProps {
 
 const InfoPanel = (props: InfoPanelProps) => {
   const { timestamp, currentValue, selectedDevice, isSelected } = props;
+  const { isAuthenticated } = useAuth0();
   return (
     <div className={styles.infoPanel}>
       {isSelected ? (
@@ -31,7 +34,12 @@ const InfoPanel = (props: InfoPanelProps) => {
               <b>{deviceType["door"]}</b> <span>{currentValue}</span>
             </div>
           </div>
-          <div>Graph section</div>
+          {isAuthenticated && (
+            <div className={styles.chartContainer}>
+              {/* <div>{deviceType["door"] && <PieChart />}</div> */}
+              <div>{deviceType["thermometer"] && <LineChart />}</div>
+            </div>
+          )}
         </>
       ) : (
         <div className={styles.emptyMsg}>Please select a device to view its information!</div>
