@@ -21,15 +21,14 @@ const InfoPanel = (props: InfoPanelProps) => {
 
   const getChartType = (): JSX.Element => {
     switch (deviceInfo.deviceType) {
-      case "door":
-        return <LineChart />;
       case "thermometer":
+        return <LineChart />;
+      case "door":
         return (
           <>
             <span>
               <b>Door states in the last x minutes</b>
             </span>
-            ;
             <PieChart />
           </>
         );
