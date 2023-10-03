@@ -1,9 +1,14 @@
 .notificationPanel {
-  border: 1px solid green;
   display: flex;
   flex-direction: column;
+  padding: 3rem 1rem;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.4901960784);
 }
 
 .message {
-  min-width: 5rem;
+  width: 25rem;
+  justify-content: flex-start;
+  background-color: #3b9fe5;
+  color: #000;
 }
