@@ -7,7 +7,8 @@ const Dashboard = () => {
   return (
     <div className={styles.dashboard}>
       <div className={styles.leftSection}>
-        <div className={styles.deviceSection}>
+        <div className={styles.devicesSection}>
+          <DevicePanel />
           <DevicePanel />
         </div>
         <InfoPanel />

@@ -6,12 +6,21 @@
   justify-content: space-between;
   align-items: center;
   .leftSection {
+    border: 1px solid red;
+    padding: 3rem 3rem;
     display: flex;
     flex-direction: column;
     margin-right: 5rem;
     .devicesSection {
+      border: 1px solid purple;
+      height: fit-content;
+      width: fit-content;
+      padding: 3rem 3rem;
       display: flex;
+      justify-content: space-evenly;
+      align-items: center;
       flex-direction: row;
+      margin-bottom: 2rem;
     }
   }
 }
