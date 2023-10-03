@@ -21,13 +21,17 @@ const NotificationPanel = (props: NotificationProps) => {
     if (type === "door") {
       for (let j = 0; j < 10; j++) {
         msgs.push(
-          <Message className={styles.message} severity="info" text={`09.${j} - Door ${j % 2 ? "closed" : "opened"}`} />
+          <Message
+            className={styles.message}
+            severity="info"
+            text={`09.0${j}h - Door ${j % 2 ? "closed" : "opened"}`}
+          />
         );
       }
     } else if (type === "thermometer") {
       for (let j = 0; j < 10; j++) {
         msgs.push(
-          <Message className={styles.message} severity="info" text={`09.${j} - Temp ${j % 2 ? "26.5" : "25.5"}`} />
+          <Message className={styles.message} severity="info" text={`09.0${j}h - Temp ${j % 2 ? "26.5" : "25.5"}`} />
         );
       }
     }
