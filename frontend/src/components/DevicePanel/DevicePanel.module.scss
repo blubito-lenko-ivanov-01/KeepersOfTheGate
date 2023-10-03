@@ -1,0 +1,17 @@
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 15rem;
+  width: 20rem;
+  margin-right: 2rem;
+  box-shadow: none;
+  border: 1px solid #dcdcdc;
+  border-radius: 25px;
+  background-color: #9ff0fe;
+  color: #000;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  }
+}
