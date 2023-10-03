@@ -3,11 +3,11 @@
   height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 10rem;
+  // justify-content: space-between;
   align-items: center;
   background: rgb(121,228,240);
   background: linear-gradient(336deg, rgba(121,228,240,1) 8%, rgba(21,123,222,1) 80%);
-  border: 1px solid red;
     padding: 3rem 3rem;
     margin-right: 5rem;
     .devicesSection {
@@ -21,7 +21,7 @@
       align-items: center;
       flex-direction: row;
       margin-bottom: 2rem;
-      background-color: #fff;
+      background-color: #ffffff7d;
     }
   }
 

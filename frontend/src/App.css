@@ -1,8 +1,10 @@
 #root {
-  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background: rgb(121,228,240);
+  background: linear-gradient(336deg, rgba(121,228,240,1) 8%, rgba(21,123,222,1) 80%);
 }
 
 .logo {
