@@ -11,7 +11,7 @@ const Dashboard = () => {
           <DevicePanel name="Device 1" key="1" />
           <DevicePanel name="Device 2" key="2" />
         </div>
-        <InfoPanel />
+        <InfoPanel selectedDevice="Fourth floor left door" timestamp="Now" currentValue="opened" isSelected={true} />
       </div>
       <NotificationPanel />
     </div>
