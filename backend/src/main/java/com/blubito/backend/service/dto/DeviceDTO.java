@@ -1,8 +1,9 @@
-package com.blubito.backend.domain;
+package com.blubito.backend.service.dto;
 
-import com.google.firebase.database.annotations.NotNull;
+import com.blubito.backend.domain.Value;
 import lombok.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,9 +13,9 @@ import java.util.List;
 @EqualsAndHashCode
 @ToString
 @AllArgsConstructor
-public class Device {
+@NoArgsConstructor
+public class DeviceDTO implements Serializable {
 
-    @NotNull
     private String id;
     private String name;
     private String type;
@@ -23,6 +24,5 @@ public class Device {
     private boolean isActive;
     private String createdAt;
     private String createdBy;
-    private List<Value> values;
-
+    private List<Value> values = new ArrayList<>();
 }

@@ -7,6 +7,24 @@ const NotificationPanel = () => {
     <>
       <ScrollPanel className={styles.notificationPanel}>
         <Message className={styles.message} severity="info" text="Info Message" />
+        <Message className={styles.message} severity="info" text="Info Message" />
+        <Message className={styles.message} severity="info" text="Info Message" />
+        <Message className={styles.message} severity="info" text="Info Message" />
+        <Message className={styles.message} severity="info" text="Info Message" />
+        <Message className={styles.message} severity="info" text="Info Message" />
+        <Message className={styles.message} severity="info" text="Info Message" />
+        <Message className={styles.message} severity="info" text="Info Message" />
+        <Message className={styles.message} severity="info" text="Info Message" />
+        <Message className={styles.message} severity="info" text="Info Message" />
+        <Message className={styles.message} severity="info" text="Info Message" />
+        <Message className={styles.message} severity="info" text="Info Message" />
+        <Message className={styles.message} severity="info" text="Info Message" />
+        <Message className={styles.message} severity="info" text="Info Message" />
+        <Message className={styles.message} severity="info" text="Info Message" />
+        <Message className={styles.message} severity="info" text="Info Message" />
+        <Message className={styles.message} severity="info" text="Info Message" />
+        <Message className={styles.message} severity="info" text="Info Message" />
+
       </ScrollPanel>
     </>
   );
