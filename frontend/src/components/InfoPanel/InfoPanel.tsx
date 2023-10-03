@@ -27,7 +27,7 @@ const InfoPanel = (props: InfoPanelProps) => {
         return (
           <>
             <span>
-              <b>Door states in the last x minutes</b>
+              <b>Door states in the last 75 minutes</b>
             </span>
             <PieChart />
           </>
@@ -36,6 +36,26 @@ const InfoPanel = (props: InfoPanelProps) => {
         return <></>;
     }
   };
+
+  const getMessage = (): JSX.Element => {
+    switch (deviceInfo.deviceType) {
+      case "thermometer":
+        return (
+          <span>
+            <b>{deviceType["thermometer"]}</b>: 26.7
+          </span>
+        );
+      case "door":
+        return (
+          <span>
+            <b>{deviceType["door"]}</b>: Opened
+          </span>
+        );
+      default:
+        return <></>;
+    }
+  };
+
   return (
     <div className={styles.infoPanel}>
       {deviceInfo.id !== -1 ? (
@@ -46,11 +66,9 @@ const InfoPanel = (props: InfoPanelProps) => {
               <b>Device name:</b> {deviceInfo.deviceName}
             </div>
             <div>
-              <b>Date:</b>
+              <b>Date</b>: {Date()}
             </div>
-            <div>
-              <b>{deviceType["door"]}</b> <span>Obhodi</span>
-            </div>
+            <div>{getMessage()}</div>
           </div>
           {isAuthenticated && <div className={styles.chartContainer}>{getChartType()}</div>}
         </>
