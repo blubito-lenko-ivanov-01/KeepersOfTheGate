@@ -1,10 +1,17 @@
 import { Card } from "primereact/card";
 import styles from "./DevicePanel.module.scss";
 
-const DevicePanel = () => {
+export interface DevicePanelProps {
+  name: string;
+}
+
+const DevicePanel = (props: DevicePanelProps) => {
+  const { name } = props;
   return (
     <>
-      <Card className={styles.card}>DEVICE 1</Card>
+      <Card className={styles.card}>
+        <h1>{name}</h1>
+      </Card>
     </>
   );
 };

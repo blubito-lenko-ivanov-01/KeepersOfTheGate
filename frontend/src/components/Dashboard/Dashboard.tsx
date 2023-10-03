@@ -8,8 +8,8 @@ const Dashboard = () => {
     <div className={styles.dashboard}>
       <div className={styles.leftSection}>
         <div className={styles.devicesSection}>
-          <DevicePanel />
-          <DevicePanel />
+          <DevicePanel name="Device 1" key="1" />
+          <DevicePanel name="Device 2" key="2" />
         </div>
         <InfoPanel />
       </div>
