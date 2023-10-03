@@ -28,8 +28,8 @@ const options = {
       position: "top" as const,
     },
     title: {
-      display: true,
-      text: "Chart.js Line Chart",
+      display: false,
+      text: "Office temperature",
     },
     maintainAspectRatio: false,
     aspectRatio: 1,
@@ -40,7 +40,7 @@ const data = {
   labels: mockData.map((row) => row.timestamp),
   datasets: [
     {
-      label: "Dataset 1",
+      label: "Temperature in Celsius",
       data: mockData.map((row) => row.value),
       borderColor: "rgb(255, 99, 132)",
       backgroundColor: "rgba(255, 99, 132, 0.5)",
