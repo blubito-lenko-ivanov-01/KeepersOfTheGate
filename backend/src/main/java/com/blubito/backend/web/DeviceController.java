@@ -9,6 +9,7 @@ import com.blubito.backend.web.exception.HttpBadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -73,6 +74,11 @@ public class DeviceController {
 
     @GetMapping("/devices/notification")
     public String getNotification(@RequestParam String currentTime) {
-        return notificationSenderService.sendNotification(currentTime);
+        return notificationSenderService.getNotification(currentTime);
+    }
+
+    @GetMapping("/devices/{type}/notification-dummy-values")
+    public HashMap<String, List<String>> getDummyNotification(@PathVariable String type) {
+        return notificationSenderService.getDummyNotification(type);
     }
 }
