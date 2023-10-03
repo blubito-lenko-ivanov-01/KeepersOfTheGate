@@ -1,13 +1,12 @@
 import styles from "./NotificationPanel.module.scss";
 import { ScrollPanel } from "primereact/scrollpanel";
-
+import { Message } from 'primereact/message';
+        
 const NotificationPanel = () => {
   return (
     <>
       <ScrollPanel className={styles.notificationPanel}>
-        <h1>Notifications</h1>
-        <h1>Msg1</h1>
-        <h1>Msg2</h1>
+        <Message className={styles.message} severity="info" text="Info Message" />
       </ScrollPanel>
     </>
   );
