@@ -36,7 +36,7 @@ public class WebSecurityConfig {
     public SecurityFilterChain httpSecurity(final HttpSecurity http) throws Exception {
         return http.authorizeRequests()
 //                    .antMatchers(HttpMethod.GET, "/api/cities").permitAll()
-                    .antMatchers("/api/**").authenticated()
+                    .antMatchers("/api/**").permitAll()
                 .and()
                     .cors()
                     .configurationSource(corsConfigurationSource())

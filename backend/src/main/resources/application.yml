@@ -6,7 +6,7 @@ spring:
           issuer-uri: https://dev-bvgptuthuktivpgq.us.auth0.com/
 
 auth0:
-  audience: http://ecart
+  audience: http://keepers-of-the-gate
 
 logging:
   level:
