@@ -4,16 +4,13 @@
   display: flex;
   flex-direction: row;
   gap: 4rem;
-  background: rgb(121,228,240);
-  background: linear-gradient(336deg, rgba(121,228,240,1) 8%, rgba(21,123,222,1) 80%);
+  background: linear-gradient(336deg, rgba(121, 228, 240, 1) 8%, rgba(21, 123, 222, 1) 80%);
   padding: 3rem 3rem;
   margin-right: 5rem;
 
   .leftSection {
-    height: 50rem;
+    min-height: 50rem;
     max-height: 50rem;
-    border: 1px solid red;
-
     .devicesSection {
       border-radius: 10px;
       max-width: 50rem;

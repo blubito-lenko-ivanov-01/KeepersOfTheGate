@@ -30,7 +30,7 @@ const InfoPanel = (props: InfoPanelProps) => {
               <b>Door states in the last x minutes</b>
             </span>
             ;
-            <PieChart />;
+            <PieChart />
           </>
         );
       default:
