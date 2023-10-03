@@ -1,6 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import LineChart from "../Charts/LineChart/LineChart";
+// import LineChart from "../Charts/LineChart/LineChart";
 import styles from "./InfoPanel.module.scss";
+import PieChart from "../Charts/PieChart/PieChart";
 
 const enum deviceType {
   door = "Current door status: ",
@@ -36,8 +37,11 @@ const InfoPanel = (props: InfoPanelProps) => {
           </div>
           {isAuthenticated && (
             <div className={styles.chartContainer}>
-              {/* <div>{deviceType["door"] && <PieChart />}</div> */}
-              <div>{deviceType["thermometer"] && <LineChart />}</div>
+              <span>
+                <b>Door states in the last x minutes</b>
+              </span>
+              <div>{deviceType["door"] && <PieChart />}</div>
+              {/* <div>{deviceType["thermometer"] && <LineChart />}</div> */}
             </div>
           )}
         </>
